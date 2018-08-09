@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -7,9 +8,29 @@
   <script src="/build/mycomponent.js"></script>
 
 </head>
-<body>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+<body>
+  <h3>Modal Test</h3>
+  <x-modal title="Important!" visible>
+    <p>This is some really important stuff</p>
+  </x-modal>
+  <button class='open'>Open</button>
 
 </body>
+
+<script>
+  modal = document.querySelector("x-modal");
+  modal.addEventListener("ok", function () {
+    console.log("ok");
+  });
+  modal.addEventListener("cancel", function () {
+    console.log("cancel");
+  });
+
+  open = document.querySelector(".open");
+  open.addEventListener("click", function () {
+    modal.visible = true;
+  })
+</script>
+
 </html>

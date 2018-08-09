@@ -29,33 +29,35 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface MyComponent {
-      'first': string;
-      'last': string;
+    interface XModal {
+      'title': string;
+      'visible': boolean;
     }
   }
 
-  interface HTMLMyComponentElement extends StencilComponents.MyComponent, HTMLStencilElement {}
+  interface HTMLXModalElement extends StencilComponents.XModal, HTMLStencilElement {}
 
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLXModalElement: {
+    prototype: HTMLXModalElement;
+    new (): HTMLXModalElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'x-modal': HTMLXModalElement;
   }
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'x-modal': HTMLXModalElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'my-component': JSXElements.MyComponentAttributes;
+      'x-modal': JSXElements.XModalAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      'first'?: string;
-      'last'?: string;
+    export interface XModalAttributes extends HTMLAttributes {
+      'onCancel'?: (event: CustomEvent) => void;
+      'onOk'?: (event: CustomEvent) => void;
+      'title'?: string;
+      'visible'?: boolean;
     }
   }
 }
