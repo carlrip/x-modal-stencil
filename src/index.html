@@ -7,6 +7,20 @@
   <title>Stencil Component Starter</title>
   <script src="/build/mycomponent.js"></script>
 
+  <style>
+    x-modal {
+      --font-family: Arial;
+      --font-size: 16px;
+      --border-radius: 0.4em;
+      --header-bg-color: #3b75a9;
+      --header-color: #fff;
+      --ok-bg-color: #28a745;
+      --ok-hover-bg-color: #227134;
+      --cancel-bg-color: #d0c7c9;
+      --cancel-hover-bg-color: #afa9aa;
+      --button-color: #fff;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,6 +45,9 @@
   open.addEventListener("click", function () {
     modal.visible = true;
   })
+
+  modal.style.setProperty('--header-bg-color', 'red');
+
 </script>
 
 </html>

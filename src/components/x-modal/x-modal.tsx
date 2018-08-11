@@ -12,10 +12,13 @@ export class XModal {
   })
   public visible: boolean;
 
-  @Prop() public title: string;
+  @Prop()
+  public title: string;
 
-  @Event() private ok: EventEmitter;
-  @Event() private cancel: EventEmitter;
+  @Event()
+  private ok: EventEmitter;
+  @Event()
+  private cancel: EventEmitter;
 
   private handleCancelClick = () => {
     this.visible = false;
@@ -30,17 +33,19 @@ export class XModal {
   public render(): JSX.Element {
     const { visible, title, handleCancelClick, handleOkClick } = this;
     return (
-      <div class={visible ? "wrapper visible" : "wrapper"}>
-        <div class="modal">
-          <span class="title">{title}</span>
-          <div class="content">
+      <div class={visible ? "x-modal-wrapper visible" : "x-modal-wrapper"}>
+        <div class="x-modal">
+          <div class="x-modal-header">
+            <span>{title}</span>
+          </div>
+          <div class="x-modal-content">
             <slot />
           </div>
-          <div class="button-container">
-            <button class="cancel" onClick={handleCancelClick}>
+          <div class="x-modal-buttons">
+            <button class="x-modal-cancel" onClick={handleCancelClick}>
               Cancel
             </button>
-            <button class="ok" onClick={handleOkClick}>
+            <button class="x-modal-ok" onClick={handleOkClick}>
               Okay
             </button>
           </div>
